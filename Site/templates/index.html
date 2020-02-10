@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+
+{% block layout %}
+	{% if get_flashed_messages() %}
+		{% for status, message in get_flashed_messages()[0].items() %}
+			<div class="alert {{status}} shadow">
+				<strong> {{ message }} </strong> 
+			</div>
+		{% endfor %}
+	{% endif %}
+	<div class="shadow" style="padding:1% 5%;background-color: #eee;margin-top: 10px ">
+		<h1 style="margin-bottom: -2%;" > Email-Local </h1>
+		<h4 style="margin-bottom: 0%;"> by Alaa Akiel </h4>
+		<p>
+			login with <strong>{{g.user.username}}</strong> 
+		</p>
+	</div>
+
+	<div>
+			<ul class="messages" style="list-style: none;">
+
+				<br>
+				{# {{ email }} #}
+				{% if email %}
+					{% for message in email %}
+					<li class="shadow message" > 
+						<a href="/message/{{ message.id }}" style="text-decoration: unset;text-transform: capitalize;"> {{ message.subject }} </a> |
+						<p style="display: inline;opacity: 0.6">{{ message.data }}</p> 
+					</li>
+					{% endfor %}
+				{% else %}
+					<div class="alert message" style="background-color: #eee">
+						<strong> haven't messages </strong>
+					</div>
+				{% endif %}
+			</ul>
+	</div>
+
+{% endblock %}
+
+
+
+{% block style %}
+
+	<style type="text/css">
+		
+		.messages{
+
+			font-size: 1.1rem
+		}
+
+		.messages li.message{
+
+			background-color: #fff;
+			padding:3px 10px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			margin-bottom: 2px;
+		}
+
+		.messages li.message:hover{
+
+			background-color: #eceaea;
+		}
+
+		.messages li.message a{
+			
+			font-weight: bold;
+		}
+	</style>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+
+{% block layout %}
+
+
+		<div class="form center shadow">
+			{% block title %}{% endblock %}
+			<hr>
+			{% if get_flashed_messages() %}
+				{% for status, message in get_flashed_messages()[0].items() %}
+					<div class="alert {{status}} shadow">
+						<strong> {{ message }} </strong> 
+					</div>
+				{% endfor %}
+			{% endif %}
+
+			{% block form %}
+			{% endblock %}
+
+		</div>
+{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		div.form{
+			background-color: #fff;
+			width: 50.3333333333%;
+			margin-top: 5%;
+			padding: 3%;
+			border-radius: 2%;
+		}
+
+	</style>
+{% endblock %}

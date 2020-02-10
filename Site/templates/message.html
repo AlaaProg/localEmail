@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+
+
+{% block layout %}
+	<h4> From : {{ message.mailfrom }} <br> To : {{ message.mailto }} </h4>
+	
+	<h1> {{ message.subject }} </h1>
+	<hr>
+	<small style="font-size: .9rem;opacity: 0.5;float: right;top: -10px">Send At : {{ message.created_at }}</small>
+	<p>
+		<frame>
+			{{ message.data | safe }}
+		</frame>
+	</p>
+
+{% endblock %}
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Local Email Server  </title>
+	</head>
+
+	<style type="text/css">
+		.container{
+			margin: 0 auto;
+			max-width: 1280px;
+		}
+
+		.center{
+			margin: 0 auto;
+			left: auto;
+			right: auto;
+		}
+
+		nav{
+
+			display: block;
+			background-color:#eee;
+			padding:1%;
+
+		}
+
+		nav ul.nav-items{
+			display: inline;
+			list-style: none;
+		}
+
+		nav ul.left{
+			float: right;
+			top: -10px;
+			position: relative;
+		}
+
+		nav ul.nav-items .item{
+			display: inline;
+		}
+
+		nav ul.nav-items .item a,
+		nav a.nav-brand{
+			text-decoration: none;
+			color: #333;
+			padding: 5px;
+			font-weight: 1000
+		}
+
+		nav a.nav-brand{
+			font-size: 1.5rem
+		}
+
+		nav ul.nav-items .item a:hover{
+
+			text-decoration: underline;
+		}
+
+		.shadow{
+
+			box-shadow: 0 0 3px 0 #44444482;
+		}
+
+		.alert{
+			padding: 1.5%;
+			margin: 1%;
+		}
+
+		.alert.error{
+
+			background-color:#e34949;
+			color:#fff;
+			border: 2px solid#d74444;
+		}
+
+		.alert.success{
+
+			background-color:#31a649;
+			color: #fff;
+			border: 2px solid #2b9541;
+		}
+
+		.btn{
+
+			padding: 9px;
+			color:#fff;
+			border: 0px;
+			font-size: 14px;
+		}
+
+		.btn:hover{
+
+			box-shadow: 0 0 2px 0 #333
+		}
+
+		.btn-form{
+
+			color:#f2eeee;
+			padding: 2%;
+			width: 100%;
+			margin-top: 7%;
+			background-color:#324253;
+			font-weight: 280;
+			font-size: 1.2rem;
+		}
+
+		form .input-form input{
+
+			margin: 0 0 10px 0;
+			padding: 0;
+			box-shadow: none;
+			height: 3rem;
+			width: 100%;
+			border: none;
+			color:rgba(0,0,0,0.42);
+			border-bottom: 1px dotted rgba(0,0,0,0.42);
+		}
+		form .input-form input:focus:not([readonly]){
+			border-bottom: 1px solid #6c7071;
+			box-shadow: 0 1px 0 0 #758084c4;
+			color:rgba(0,0,0,1);
+		}
+
+
+
+	</style>
+
+	{% block style %}
+	{% endblock %}
+
+	<body>
+
+		<div class="container">
+			<nav class="shadow">
+				<a href="#!" class="nav-brand"> Email Local   </a>
+				<ul class="nav-items">
+					<li class="item"> <a href="/"> Home </a> </li>
+					<!-- <li class="item"> <a href="#!"> Send Email </a> </li> -->
+				</ul>
+				<ul class="nav-items left" >
+					{% if g.user %}
+						<li class="item"> <a href="/logout"> Logout </a> </li>
+					{% else %}
+						<li class="item"> <a href="/login"> Login </a> </li>
+						<li class="item"> <a href="/register"> Register </a> </li>
+					{% endif %}
+				</ul>
+			</nav>
+
+			{% block layout %}
+			{% endblock %}
+		</div>
+
+		{% block javascript %}
+		{% endblock %}
+	</body>
+</html>

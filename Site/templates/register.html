@@ -1,0 +1,26 @@
+{% extends "layout_form.html" %}
+
+{% block title %}
+	<h3> Create new email  </h3> 
+
+{% endblock %}
+
+{% block form %}
+		<form id='register' action="/register" method="POST" >
+			<div class="input-form">
+				<input type="text" name="username" required autocomplete=false placeholder="Username" pattern="[a-z0-9._]+$">
+			</div>	
+			<div class="input-form">
+				<input type="text" name="fullname" required autocomplete=false  placeholder="Full Name">
+			</div>
+
+			<div class="input-form">
+				<input type="password" name="password" required autocomplete=false  placeholder="Password" pattern="[a-z0-9]{8,20}$">
+			</div>	
+
+			<button class="btn btn-form" type="submit"> Submit </button>	
+		</form>
+{% endblock %}
+
+
+
