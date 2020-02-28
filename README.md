@@ -1,5 +1,5 @@
 # localEmail
-Local Server Email 
+Smiple Local Server Email `[a-z]@local.com` with  Smiple Flask Site 
 
 
 # How to use 
